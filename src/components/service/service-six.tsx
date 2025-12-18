@@ -6,6 +6,8 @@ import ser_img_1 from "@/assets/img/inner-service/service/service-1.jpg";
 import ser_img_2 from "@/assets/img/inner-service/service/service-2.jpg";
 import ser_img_3 from "@/assets/img/inner-service/service/service-3.jpg";
 import ser_img_4 from "@/assets/img/inner-service/service/service-4.jpg";
+import ser_img_5 from "@/assets/img/inner-service/service/service-1.jpg";
+import ser_img_6 from "@/assets/img/inner-service/service/service-2.jpg";
 import { RightArrow, ShapeTwo } from "../svg";
 import Link from "next/link";
 
@@ -14,52 +16,78 @@ const service_data = [
     id: 1,
     img: ser_img_1,
     subtitle: "Design Studio",
-    title: "Logos and branding",
-    text: "We create your graphic designs according to your budget and your needs. Reveal your brand image and capture your audience.",
+    title: "Branding & Identity Design",
+    text: "We craft unique visual identities that capture your brand's essence. From comprehensive brand strategies to cohesive design systems that resonate with your audience.",
     lists: [
       "Logo Design",
-      "Graphic identity",
-      "Business communication",
-      "Web design",
+      "Brand Guidelines",
+      "Visual Identity Systems",
+      "Stationery Design",
     ],
   },
   {
     id: 2,
     img: ser_img_2,
     subtitle: "Design Studio",
-    title: "Web Design",
-    text: "We create your graphic designs according to your budget and your needs. Reveal your brand image and capture your audience.",
+    title: "Social Media",
+    text: "Engaging content creation for all digital platforms. We design stunning posts, stories, reels, and banners that drive engagement and build your digital presence.",
     lists: [
-      "Logo Design",
-      "Graphic identity",
-      "Business communication",
-      "Web design",
+      "Social Media Content",
+      "Digital Advertising",
+      "Stories & Reels",
+      "Campaign Design",
     ],
   },
   {
     id: 3,
     img: ser_img_3,
     subtitle: "Design Studio",
-    title: "Motion-Design",
-    text: "We create your graphic designs according to your budget and your needs. Reveal your brand image and capture your audience.",
+    title: "Environmental Graphics",
+    text: "Transforming physical spaces into branded experiences. From event branding and signage to window displays and wayfinding systems that leave lasting impressions.",
     lists: [
-      "Logo Design",
-      "Graphic identity",
-      "Business communication",
-      "Web design",
+      "Event Branding",
+      "Signage & Wayfinding",
+      "Window Displays",
+      "Publication Design",
     ],
   },
   {
     id: 4,
     img: ser_img_4,
     subtitle: "Design Studio",
-    title: "Web Analytics",
-    text: "We create your graphic designs according to your budget and your needs. Reveal your brand image and capture your audience.",
+    title: "Photography & Videography",
+    text: "Professional visual storytelling through expert photography and videography. We capture compelling narratives with image editing and video graphics overlay services.",
     lists: [
-      "Logo Design",
-      "Graphic identity",
-      "Business communication",
-      "Web design",
+      "Product Photography",
+      "Food Photography",
+      "Video Editing",
+      "Image Enhancement",
+    ],
+  },
+  {
+    id: 5,
+    img: ser_img_5,
+    subtitle: "Design Studio",
+    title: "Glazed Creations",
+    text: "Custom ceramic artwork and branded merchandise design. From unique pottery pieces to promotional items, we create tangible expressions of your brand identity.",
+    lists: [
+      "Custom Ceramic Artwork",
+      "Apparel Graphics",
+      "Promotional Items",
+      "Packaging Design",
+    ],
+  },
+  {
+    id: 6,
+    img: ser_img_6,
+    subtitle: "Design Studio",
+    title: "Creative Consulting",
+    text: "Strategic guidance for your brand's creative journey. We provide brand strategy consulting, marketing campaign conceptualization, and comprehensive content strategy development.",
+    lists: [
+      "Brand Strategy",
+      "Marketing Campaigns",
+      "Content Strategy",
+      "Creative Direction",
     ],
   },
 ];

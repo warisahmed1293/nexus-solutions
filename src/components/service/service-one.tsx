@@ -1,38 +1,51 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
 // service images
 import s_1 from "@/assets/img/home-01/service/service-icon-1.png";
 import s_2 from "@/assets/img/home-01/service/service-icon-2.png";
 import s_3 from "@/assets/img/home-01/service/service-icon-3.png";
 import s_4 from "@/assets/img/home-01/service/service-icon-4.png";
+import s_5 from "@/assets/img/home-01/service/service-icon-1.png";
+import s_6 from "@/assets/img/home-01/service/service-icon-2.png";
 
 // service data
 const service_data = [
   {
     id: 1,
-    title: "VIDEO CREATION",
-    desc: "Dolor magna eget est lorem ipsum dolor sit amet consectetur. Bibendum est ultricies integer quis auctor elit sed.",
+    title: "BRANDING & IDENTITY DESIGN",
+    desc: "We craft unique visual identities that capture your brand's essence. From logos to comprehensive brand guidelines, we create cohesive systems that resonate with your audience.",
     icon: s_1,
   },
   {
     id: 2,
-    title: "ART DIRECTION",
-    desc: "Dolor magna eget est lorem ipsum dolor sit amet consectetur. Bibendum est ultricies integer quis auctor elit sed.",
+    title: "SOCIAL MEDIA",
+    desc: "Engaging content creation for all platforms. We design stunning posts, stories, reels, and banners that drive engagement and build your digital presence.",
     icon: s_2,
   },
   {
     id: 3,
-    title: "MOTION DESIGN",
-    desc: "Dolor magna eget est lorem ipsum dolor sit amet consectetur. Bibendum est ultricies integer quis auctor elit sed.",
+    title: "ENVIRONMENTAL GRAPHICS",
+    desc: "Transforming physical spaces into branded experiences. From event branding and signage to window displays and wayfinding systems that leave lasting impressions.",
     icon: s_3,
   },
   {
     id: 4,
-    title: "BRAND STRATEGY",
-    desc: "Dolor magna eget est lorem ipsum dolor sit amet consectetur. Bibendum est ultricies integer quis auctor elit sed.",
+    title: "PHOTOGRAPHY & VIDEOGRAPHY",
+    desc: "Professional product, spatial, and food photography combined with expert video editing. We capture your story through compelling visual narratives.",
     icon: s_4,
+  },
+  {
+    id: 5,
+    title: "GLAZED CREATIONS",
+    desc: "Custom ceramic artwork and merchandise design. From unique pottery pieces to branded promotional items, we create tangible expressions of your brand.",
+    icon: s_5,
+  },
+  {
+    id: 6,
+    title: "CREATIVE CONSULTING",
+    desc: "Strategic guidance for your brand's creative journey. We provide brand strategy consulting, marketing campaign conceptualization, and content strategy development.",
+    icon: s_6,
   },
 ];
 
