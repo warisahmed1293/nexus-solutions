@@ -6,11 +6,11 @@ import { fadeAnimation } from "@/utils/title-animation";
 
 const HeroBannerOne = () => {
   useGSAP(() => {
-  
-    if(typeof window !== 'undefined'){
+
+    if (typeof window !== 'undefined') {
       setTimeout(() => {
         fadeAnimation();
-      },100)
+      }, 100)
     }
   }, {});
   return (
@@ -63,9 +63,7 @@ const HeroBannerOne = () => {
             <div className="tp-hero-content tp_fade_bottom">
               <p>
                 <span></span>
-                Global digital design studio partnering with brands and
-                businesses that create exceptional experiences. We are design
-                and development agency based in Netherland.
+                Specializing in branding and digital creations, we build personal relationships and foster close collaboration with our clients. Our selective approach ensures each project receives meticulous attention, allowing us to craft unique concepts infused with artistic storytelling.
               </p>
             </div>
           </div>

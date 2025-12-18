@@ -35,7 +35,7 @@ const HeaderOne = () => {
                   </Link>
                   <Link className="logo-2" href="/">
                     <Image
-                      src="/assets/img/logo/logo-white.png"
+                      src="/assets/img/logo/logo.png"
                       alt="logo"
                       width={85}
                       height={26}
