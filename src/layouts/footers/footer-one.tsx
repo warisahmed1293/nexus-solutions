@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from '@/assets/img/logo/logo-white.png';
+import logo from '@/assets/img/logo/logo.png';
 import { footerOneAnimation, footerTwoAnimation } from "@/utils/footer-anim";
 
 const footer_links = [
@@ -53,7 +53,7 @@ export default function FooterOne() {
                         <div className="tp-footer-widget-info">
                           <div className="tp-footer-widget-info-mail tp_fade_bottom">
                             <a href="mailto:contact@agency.com">
-                              contact@agency.com
+                              contact@glazeddesign.com
                             </a>
                           </div>
                           <div className="tp-footer-widget-info-location tp_fade_bottom">
@@ -61,7 +61,7 @@ export default function FooterOne() {
                               href="https://www.google.com/maps/@54.581385,-101.7562167,7.5z?entry=ttu"
                               target="_blank"
                             >
-                              389 Street St. <br /> San Francisco,CA
+                              Lebanon  |  Canada  |  Dubai  |  Cyprus
                             </a>
                           </div>
                         </div>
@@ -74,16 +74,13 @@ export default function FooterOne() {
                         </h4>
                         <ul className="tp-footer-widget-social">
                           <li className="tp_fade_bottom">
-                            <a href="#">Facebook</a>
+                            <a href="https://www.linkedin.com/company/glazedesign/" target="_blank">Linkedin</a>
                           </li>
                           <li className="tp_fade_bottom">
-                            <a href="#">Instagram</a>
+                            <a href="https://www.instagram.com/glazeddesign_" target="_blank">Instagram</a>
                           </li>
                           <li className="tp_fade_bottom">
-                            <a href="#">Behance</a>
-                          </li>
-                          <li className="tp_fade_bottom">
-                            <a href="#">Dribbble</a>
+                            <a href="https://www.behance.net/tanyabizri" target="_blank">Behance</a>
                           </li>
                         </ul>
                       </div>
@@ -94,9 +91,6 @@ export default function FooterOne() {
             </div>
           </div>
         </div>
-        {/* footer area end */}
-
-        {/* copyright area start */}
         <div className="container-fluid">
           <div className="tp-copyright-wrap">
             <div className="row align-items-center">
@@ -110,7 +104,7 @@ export default function FooterOne() {
               <div className="col-xl-6 col-md-8">
                 <div className="tp-copyright-text text-center text-md-end">
                   <p>
-                    Copyright © {new Date().getFullYear()} Themepure. All rights
+                    Copyright © {new Date().getFullYear()} Glazed Design. All rights
                     reserved.
                   </p>
                 </div>
