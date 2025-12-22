@@ -35,10 +35,10 @@ export default function HeaderEleven({transparent=false,cls=''}: IProps) {
               <div className="col-xl-2 col-lg-6 col-md-6 col-6">
                 <div className="tp-inner-header-logo tp-header-logo">
                   <Link className={`${transparent?'ab-logo-1':'logo-1'}`} href="/">
-                    <Image src={transparent?logo_2:logo} alt="logo" />
+                    <Image src={transparent?logo:logo} alt="logo" />
                   </Link>
                   <Link className={`${transparent?'ab-logo-2':'logo-2'}`} href="/">
-                    <Image src={transparent?logo:logo_2} alt="logo" />
+                    <Image src={transparent?logo:logo} alt="logo" />
                   </Link>
                 </div>
               </div>

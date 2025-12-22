@@ -63,10 +63,6 @@ const AboutUsMain = () => {
             {/* brand area */}
             <BrandFive />
             {/* brand area */}
-
-            {/* award area */}
-            <AwardOne cls="ab-award-style pt-120 pb-120" abStyle={true} />
-            {/* award area */}
           </main>
 
           {/* footer area */}
