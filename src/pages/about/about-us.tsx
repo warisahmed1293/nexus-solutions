@@ -20,6 +20,7 @@ import AwardOne from "@/components/award/award-one";
 import { charAnimation, fadeAnimation, titleAnimation } from "@/utils/title-animation";
 import { hoverBtn } from "@/utils/hover-btn";
 import { teamMarqueAnim } from "@/utils/scroll-marque";
+import FooterOne from "@/layouts/footers/footer-one";
 
 const AboutUsMain = () => {
   useScrollSmooth();
@@ -66,7 +67,7 @@ const AboutUsMain = () => {
           </main>
 
           {/* footer area */}
-          <FooterTwo topCls="" />
+          <FooterOne/>
           {/* footer area */}
         </div>
       </div>

@@ -1,69 +1,54 @@
 import type { Metadata } from "next";
-import {
-  Syne,
-  Aladin,
-  Big_Shoulders_Display,
-  Marcellus,
-} from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import "./globals.scss";
 
-const gellery = localFont({
+// BelyDisplay for main hero headings
+const belyDisplay = localFont({
   src: [
     {
-      path: "../../public/assets/fonts/gallerymodern-webfont.ttf",
+      path: "../../public/assets/fonts/BelyDisplay.ttf",
       weight: "400",
       style: "normal",
     },
+  ],
+  variable: "--tp-ff-bely",
+});
+
+// NexaBold for all headings
+const nexaBold = localFont({
+  src: [
     {
-      path: "../../public/assets/fonts/gallerymodern-webfont.woff",
-      weight: "400",
+      path: "../../public/assets/fonts/NexaBold.otf",
+      weight: "700",
       style: "normal",
     },
+  ],
+  variable: "--tp-ff-heading",
+});
+
+// NexaLight for body text, paragraphs, lists
+const nexaLight = localFont({
+  src: [
     {
-      path: "../../public/assets/fonts/gallerymodern-webfont.woff2",
+      path: "../../public/assets/fonts/NexaLight.otf",
+      weight: "300",
+      style: "normal",
+    },
+  ],
+  variable: "--tp-ff-body",
+});
+
+// Keep gallery font if you're using it somewhere
+const gallery = localFont({
+  src: [
+    {
+      path: "../../public/assets/fonts/BelyDisplay.ttf",
       weight: "400",
       style: "normal",
     },
   ],
   variable: "--tp-ff-gallery",
-});
-
-const aladin = Aladin({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--tp-ff-aladin",
-});
-const syne_body = Syne({
-  weight: ["400", "500", "600", "700", "800"],
-  subsets: ["latin"],
-  variable: "--tp-ff-body",
-});
-const syne_heading = Syne({
-  weight: ["400", "500", "600", "700", "800"],
-  subsets: ["latin"],
-  variable: "--tp-ff-heading",
-});
-const syne_p = Syne({
-  weight: ["400", "500", "600", "700", "800"],
-  subsets: ["latin"],
-  variable: "--tp-ff-p",
-});
-const syne = Syne({
-  weight: ["400", "500", "600", "700", "800"],
-  subsets: ["latin"],
-  variable: "--tp-ff-syne",
-});
-const big_shoulders = Big_Shoulders_Display({
-  weight: ["400", "500", "600", "700", "800"],
-  subsets: ["latin"],
-  variable: "--tp-ff-shoulders",
-});
-const marcellus = Marcellus({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--tp-ff-marcellus",
 });
 
 export const metadata: Metadata = {
@@ -81,7 +66,7 @@ export default function RootLayout({
       <body
         id="body"
         suppressHydrationWarning={true}
-        className={`${gellery.variable} ${aladin.variable} ${syne_body.variable} ${syne_heading.variable} ${syne_p.variable} ${syne.variable} ${big_shoulders.variable} ${marcellus.variable}`}
+        className={`${belyDisplay.variable} ${nexaBold.variable} ${nexaLight.variable} ${gallery.variable}`}
       >
         <ThemeProvider defaultTheme="light">{children}</ThemeProvider>
       </body>

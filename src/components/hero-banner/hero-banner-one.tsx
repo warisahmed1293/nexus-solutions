@@ -32,9 +32,6 @@ const HeroBannerOne = () => {
                 <h1 className="tp-hero-title tp_fade_bottom">
                   <span className="p-relative">
                     Creative
-                    <span className="tp-hero-subtitle d-none d-lg-block ">
-                      Hello <br /> People! We’re
-                    </span>
                     <span className="tp-hero-shape-2 d-none d-md-block">
                       <Image
                         src="/assets/img/home-01/hero/hero-shape-1-1.png"

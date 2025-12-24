@@ -1,13 +1,23 @@
+// src/components/service/service-details-area.tsx
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ServiceDetail } from "@/data/service-details-data";
 
-// images
-import sv_1 from "@/assets/img/inner-service/sercive-details/sv-details-1.jpg";
-import sv_2 from "@/assets/img/inner-service/sercive-details/sv-details-2.jpg";
-import sv_3 from "@/assets/img/inner-service/sercive-details/sv-details-3.jpg";
+interface ServiceDetailsAreaProps {
+  service: ServiceDetail;
+}
 
-export default function ServiceDetailsArea() {
+export default function ServiceDetailsArea({ service }: ServiceDetailsAreaProps) {
+  const allServices = [
+    { slug: "branding-identity-design", name: "Branding & Identity" },
+    { slug: "social-media", name: "Social Media" },
+    { slug: "environmental-graphics", name: "Environmental Graphics" },
+    { slug: "photography-videography", name: "Photography & Video" },
+    { slug: "glazed-creations", name: "Glazed Creations" },
+    { slug: "creative-consulting", name: "Creative Consulting" }
+  ];
+
   return (
     <div className="service-details__area service-details__space pt-200 pb-120">
       <div className="container">
@@ -15,31 +25,30 @@ export default function ServiceDetailsArea() {
           <div className="col-xl-12">
             <div className="service-details__title-box mb-40">
               <span className="service-details__subtitle tp-char-animation">
-                Design Studio
+                {service.subtitle}
               </span>
               <h4 className="sv-hero-title tp-char-animation">
-                Logo and branding
+                {service.title}
               </h4>
             </div>
           </div>
           <div className="row">
             <div className="offset-xl-4 col-xl-5">
               <div className="service-details__banner-text mb-80">
-                <p className="mb-30 tp_title_anim">
-                  Branding is essential to establish yourself in the market
-                  <br /> in a unique and permanent way. At Riveal, we attach{" "}
-                  <br /> great importance. We seek to understand your business
-                  to better convey your values ​​and your talent <br /> through
-                  your brand image.{" "}
-                </p>
-                <p className="tp_title_anim">
-                  Explore our achievements and let yourself be <br /> convinced!
-                </p>
+                {service.detailsPage.introText.map((text, index) => (
+                  <p 
+                    key={index} 
+                    className={index === 0 ? "mb-30 tp_title_anim" : "tp_title_anim"}
+                  >
+                    {text}
+                  </p>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </div>
+      
       <div className="container-fluid">
         <div className="row">
           <div className="col-xl-12">
@@ -47,8 +56,8 @@ export default function ServiceDetailsArea() {
               <div className="service-details__tab-thumb">
                 <Image
                   data-speed="0.4"
-                  src={sv_1}
-                  alt="service-img"
+                  src={service.detailsPage.heroImage}
+                  alt={`${service.title} - hero image`}
                   style={{ height: "auto" }}
                 />
               </div>
@@ -56,92 +65,87 @@ export default function ServiceDetailsArea() {
           </div>
         </div>
       </div>
+      
       <div className="container">
         <div className="row">
           <div className="col-xl-7 col-lg-7">
             <div className="service-details__left-wrap">
               <div className="service-details__left-text pb-20">
                 <p className="text-1 tp_title_anim">
-                  Your logo is at the heart of your identity. An impactful
-                  design, tailor-made and in line with your activity will allow
-                  you to differentiate yourself and mark your audience.
+                  {service.detailsPage.mainContent.heading}
                 </p>
-                <p>
-                  Great user experience design lets users focus on the task they
-                  have to complete and evokes emotion without distracting them.!
-                </p>
+                {service.detailsPage.mainContent.description.map((desc, index) => (
+                  <p key={index}>{desc}</p>
+                ))}
               </div>
+              
               <div className="service-details__fea-list">
                 <ul>
-                  <li>Graphic research and production</li>
-                  <li>Presentation of your logo on different media</li>
-                  <li>
-                    Advice on the graphic orientation of your logo or its
-                    redesign
-                  </li>
-                  <li>Delivery of your logo in professional formats</li>
+                  {service.detailsPage.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
                 </ul>
               </div>
-              <div className="service-details__sm-thumb-wrap mb-60">
-                <div className="row">
-                  <div className="col-xl-6 col-lg-6 col-md-6 mb-20">
-                    <div className="service-details__sm-thumb">
-                      <Image
-                        src={sv_2}
-                        alt="service-img"
-                        style={{ height: "auto" }}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-xl-6 col-lg-6 col-md-6 mb-20">
-                    <div className="service-details__sm-thumb">
-                      <Image
-                        src={sv_3}
-                        alt="service-img"
-                        style={{ height: "auto" }}
-                      />
-                    </div>
+              
+              {service.detailsPage.smallImages.length > 0 && (
+                <div className="service-details__sm-thumb-wrap mb-60">
+                  <div className="row">
+                    {service.detailsPage.smallImages.map((img, index) => (
+                      <div 
+                        key={index} 
+                        className="col-xl-6 col-lg-6 col-md-6 mb-20"
+                      >
+                        <div className="service-details__sm-thumb">
+                          <Image
+                            src={img}
+                            alt={`${service.title} - detail ${index + 1}`}
+                            style={{ height: "auto" }}
+                          />
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              </div>
+              )}
+              
               <div className="service-details__left-text">
-                <p>
-                  Great user experience design lets users focus on the task they
-                  have to complete & evokes emotion without distracting them.
-                  Bonus points for when it also looks & feels aesthetically
-                  pleasing!{" "}
-                </p>
+                <p>{service.detailsPage.bottomText}</p>
               </div>
             </div>
           </div>
+          
           <div className="col-xl-5 col-lg-5">
             <div className="service-details__right-wrap fix p-relative">
               <div className="service-details__rotate-text">
                 <span>Full list of services</span>
               </div>
+              
               <div className="service-details__right-category">
-                <a href="#">Strategy</a>
-                <a className="active" href="#">
-                  Logo Design
-                </a>
-                <a href="#">Graphic identity</a>
-                <a href="#">Web Design</a>
-                <a href="#">Development</a>
+                {allServices.map((s) => (
+                  <Link 
+                    key={s.slug}
+                    href={`/service-details/${s.slug}`}
+                    className={s.slug === service.slug ? "active" : ""}
+                  >
+                    {s.name}
+                  </Link>
+                ))}
               </div>
+              
               <div className="service-details__right-text-box">
                 <h4>
-                  Logo <br /> Design
+                  {service.detailsPage.sidebarContent.title.split(' ').slice(0, 2).join(' ')}
+                  <br />
+                  {service.detailsPage.sidebarContent.title.split(' ').slice(2).join(' ')}
                 </h4>
                 <p className="mb-20">
-                  Your logo is at the heart of your identity. An impactful
-                  design, tailor-made and in line with your activity will allow
-                  you to differentiate yourself and mark your audience.
+                  {service.detailsPage.sidebarContent.description}
                 </p>
                 <Link
                   className="tp-btn-white background-black"
                   href="/contact"
                 >
-                  Let’s Talk
+                  Let's Talk
                 </Link>
               </div>
             </div>
