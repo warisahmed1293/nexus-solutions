@@ -25,7 +25,6 @@ const ServiceDetailsPage = () => {
   const router = useRouter();
   const params = useParams();
 
-  // ✅ SAFE slug extraction
   const slug =
     params && typeof params.slug === "string" ? params.slug : null;
 
@@ -40,27 +39,17 @@ const ServiceDetailsPage = () => {
     return () => clearTimeout(timer);
   });
 
-  // 🚨 If slug is missing, redirect safely
+  const service = slug ? getServiceBySlug(slug) : null;
+
+  // ✅ ONE effect, ALWAYS CALLED
   useEffect(() => {
-    if (!slug) {
+    if (!slug || !service) {
       router.push("/error");
     }
-  }, [slug, router]);
+  }, [slug, service, router]);
 
-  if (!slug) {
-    return null;
-  }
-
-  const service = getServiceBySlug(slug);
-
-  // 🚨 If service not found
-  useEffect(() => {
-    if (!service) {
-      router.push("/error");
-    }
-  }, [service, router]);
-
-  if (!service) {
+  // ✅ conditional render AFTER hooks
+  if (!slug || !service) {
     return null;
   }
 
