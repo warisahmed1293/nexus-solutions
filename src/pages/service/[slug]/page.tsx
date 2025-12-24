@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 
 import useScrollSmooth from "@/hooks/use-scroll-smooth";
 import { ScrollSmoother, ScrollTrigger, SplitText } from "@/plugins";
@@ -23,10 +23,7 @@ import { charAnimation, titleAnimation } from "@/utils/title-animation";
 
 const ServiceDetailsPage = () => {
   const router = useRouter();
-  const params = useParams();
-
-  const slug =
-    params && typeof params.slug === "string" ? params.slug : null;
+  const { slug } = router.query;
 
   useScrollSmooth();
 
@@ -39,17 +36,18 @@ const ServiceDetailsPage = () => {
     return () => clearTimeout(timer);
   });
 
-  const service = slug ? getServiceBySlug(slug) : null;
+  const service =
+    typeof slug === "string" ? getServiceBySlug(slug) : null;
 
-  // ✅ ONE effect, ALWAYS CALLED
+  // ✅ ONE EFFECT, ALWAYS RUNS
   useEffect(() => {
-    if (!slug || !service) {
+    if (router.isReady && (!slug || !service)) {
       router.push("/error");
     }
-  }, [slug, service, router]);
+  }, [router.isReady, slug, service, router]);
 
-  // ✅ conditional render AFTER hooks
-  if (!slug || !service) {
+  // ✅ Render AFTER hooks
+  if (!router.isReady || !slug || !service) {
     return null;
   }
 
