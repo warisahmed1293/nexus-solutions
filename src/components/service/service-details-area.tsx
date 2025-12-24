@@ -36,8 +36,8 @@ export default function ServiceDetailsArea({ service }: ServiceDetailsAreaProps)
             <div className="offset-xl-4 col-xl-5">
               <div className="service-details__banner-text mb-80">
                 {service.detailsPage.introText.map((text, index) => (
-                  <p 
-                    key={index} 
+                  <p
+                    key={index}
                     className={index === 0 ? "mb-30 tp_title_anim" : "tp_title_anim"}
                   >
                     {text}
@@ -48,7 +48,7 @@ export default function ServiceDetailsArea({ service }: ServiceDetailsAreaProps)
           </div>
         </div>
       </div>
-      
+
       <div className="container-fluid">
         <div className="row">
           <div className="col-xl-12">
@@ -65,7 +65,7 @@ export default function ServiceDetailsArea({ service }: ServiceDetailsAreaProps)
           </div>
         </div>
       </div>
-      
+
       <div className="container">
         <div className="row">
           <div className="col-xl-7 col-lg-7">
@@ -78,7 +78,7 @@ export default function ServiceDetailsArea({ service }: ServiceDetailsAreaProps)
                   <p key={index}>{desc}</p>
                 ))}
               </div>
-              
+
               <div className="service-details__fea-list">
                 <ul>
                   {service.detailsPage.features.map((feature, index) => (
@@ -86,13 +86,13 @@ export default function ServiceDetailsArea({ service }: ServiceDetailsAreaProps)
                   ))}
                 </ul>
               </div>
-              
+
               {service.detailsPage.smallImages.length > 0 && (
                 <div className="service-details__sm-thumb-wrap mb-60">
                   <div className="row">
                     {service.detailsPage.smallImages.map((img, index) => (
-                      <div 
-                        key={index} 
+                      <div
+                        key={index}
                         className="col-xl-6 col-lg-6 col-md-6 mb-20"
                       >
                         <div className="service-details__sm-thumb">
@@ -107,22 +107,22 @@ export default function ServiceDetailsArea({ service }: ServiceDetailsAreaProps)
                   </div>
                 </div>
               )}
-              
+
               <div className="service-details__left-text">
                 <p>{service.detailsPage.bottomText}</p>
               </div>
             </div>
           </div>
-          
+
           <div className="col-xl-5 col-lg-5">
             <div className="service-details__right-wrap fix p-relative">
               <div className="service-details__rotate-text">
                 <span>Full list of services</span>
               </div>
-              
+
               <div className="service-details__right-category">
                 {allServices.map((s) => (
-                  <Link 
+                  <Link
                     key={s.slug}
                     href={`/service-details/${s.slug}`}
                     className={s.slug === service.slug ? "active" : ""}
@@ -131,7 +131,7 @@ export default function ServiceDetailsArea({ service }: ServiceDetailsAreaProps)
                   </Link>
                 ))}
               </div>
-              
+
               <div className="service-details__right-text-box">
                 <h4>
                   {service.detailsPage.sidebarContent.title.split(' ').slice(0, 2).join(' ')}
@@ -145,8 +145,9 @@ export default function ServiceDetailsArea({ service }: ServiceDetailsAreaProps)
                   className="tp-btn-white background-black"
                   href="/contact"
                 >
-                  Let's Talk
+                  Let&apos;s Talk
                 </Link>
+
               </div>
             </div>
           </div>
