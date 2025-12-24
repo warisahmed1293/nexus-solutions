@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 import useScrollSmooth from "@/hooks/use-scroll-smooth";
 import { ScrollSmoother, ScrollTrigger, SplitText } from "@/plugins";
@@ -21,9 +21,15 @@ import FooterTwo from "@/layouts/footers/footer-two";
 import { getServiceBySlug } from "@/data/service-details-data";
 import { charAnimation, titleAnimation } from "@/utils/title-animation";
 
-const ServiceDetailsPage = () => {
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default function ServiceDetailsPage({ params }: PageProps) {
   const router = useRouter();
-  const { slug } = router.query;
+  const { slug } = params;
 
   useScrollSmooth();
 
@@ -36,18 +42,16 @@ const ServiceDetailsPage = () => {
     return () => clearTimeout(timer);
   });
 
-  const service =
-    typeof slug === "string" ? getServiceBySlug(slug) : null;
+  const service = getServiceBySlug(slug);
 
-  // ✅ ONE EFFECT, ALWAYS RUNS
+  // ✅ ONE EFFECT – ALWAYS RUNS
   useEffect(() => {
-    if (router.isReady && (!slug || !service)) {
+    if (!service) {
       router.push("/error");
     }
-  }, [router.isReady, slug, service, router]);
+  }, [service, router]);
 
-  // ✅ Render AFTER hooks
-  if (!router.isReady || !slug || !service) {
+  if (!service) {
     return null;
   }
 
@@ -68,6 +72,4 @@ const ServiceDetailsPage = () => {
       </div>
     </Wrapper>
   );
-};
-
-export default ServiceDetailsPage;
+}
