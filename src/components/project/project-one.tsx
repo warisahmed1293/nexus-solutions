@@ -54,7 +54,7 @@ const ProjectOne = ({ style_2 = false }: IProps) => {
                       <ProjectItem key={item.id} item={item} />
                     ))}
 
-                    <div className="tp-project-btn tp-btn-trigger">
+                    {/* <div className="tp-project-btn tp-btn-trigger">
                       <div className="tp-btn-bounce">
                         <Link
                           className="tp-btn-border"
@@ -66,7 +66,7 @@ const ProjectOne = ({ style_2 = false }: IProps) => {
                           </span>
                         </Link>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
