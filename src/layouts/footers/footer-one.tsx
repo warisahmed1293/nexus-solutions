@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from '@/assets/img/logo/logo.png';
+import logo from '@/assets/img/logo/glazed-logo-white.png';
 import { footerOneAnimation, footerTwoAnimation } from "@/utils/footer-anim";
 
 const footer_links = [
@@ -15,7 +15,7 @@ export default function FooterOne() {
   const [isActive, setIsActive] = React.useState(false);
   useEffect(() => {
     footerOneAnimation();
-  },[])
+  }, [])
   return (
     <footer>
       {/* footer area start */}
@@ -53,7 +53,7 @@ export default function FooterOne() {
                         <div className="tp-footer-widget-info">
                           <div className="tp-footer-widget-info-mail tp_fade_bottom">
                             <a href="mailto:contact@agency.com">
-                              contact@glazeddesign.com
+                              info@glazeddesign.com
                             </a>
                           </div>
                           <div className="tp-footer-widget-info-location tp_fade_bottom">
@@ -74,10 +74,13 @@ export default function FooterOne() {
                         </h4>
                         <ul className="tp-footer-widget-social">
                           <li className="tp_fade_bottom">
-                            <a href="https://www.linkedin.com/company/glazedesign/" target="_blank">Linkedin</a>
+                            <a href="https://www.instagram.com/glazed.design" target="_blank">Instagram</a>
                           </li>
                           <li className="tp_fade_bottom">
-                            <a href="https://www.instagram.com/glazeddesign_" target="_blank">Instagram</a>
+                            {/* <a href="https://www.linkedin.com/company/glazedesign/" target="_blank">Linkedin</a> */}
+                          </li>
+                          <li className="tp_fade_bottom">
+                            {/* <a href="https://www.linkedin.com/company/glazedesign/" target="_blank">Linkedin</a> */}
                           </li>
                           <li className="tp_fade_bottom">
                             <a href="https://www.behance.net/tanyabizri" target="_blank">Behance</a>
@@ -97,16 +100,16 @@ export default function FooterOne() {
               <div className="col-xl-6 col-md-4">
                 <div className="tp-copyright-logo text-center text-md-start">
                   <Link href="/">
-                    <Image src={logo} alt="logo" />
+                    <Image src={logo} alt="logo" style={{width:150}} />
                   </Link>
                 </div>
               </div>
               <div className="col-xl-6 col-md-8">
                 <div className="tp-copyright-text text-center text-md-end">
-                  <p>
+                  {/* <p>
                     Copyright © {new Date().getFullYear()} Glazed Design. All rights
                     reserved.
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>

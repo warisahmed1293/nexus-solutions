@@ -29,16 +29,16 @@ const HeaderOne = () => {
                     <Image
                       src="/assets/img/logo/logo.png"
                       alt="logo"
-                      width={85}
-                      height={26}
+                      width={170}
+                      height={52}
                     />
                   </Link>
                   <Link className="logo-2" href="/">
                     <Image
                       src="/assets/img/logo/logo.png"
                       alt="logo"
-                      width={85}
-                      height={26}
+                      width={170}
+                      height={52}
                     />
                   </Link>
                 </div>

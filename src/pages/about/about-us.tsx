@@ -21,6 +21,8 @@ import { charAnimation, fadeAnimation, titleAnimation } from "@/utils/title-anim
 import { hoverBtn } from "@/utils/hover-btn";
 import { teamMarqueAnim } from "@/utils/scroll-marque";
 import FooterOne from "@/layouts/footers/footer-one";
+import BrandOne from "@/components/brand/brand-one";
+import HeaderOne from "@/layouts/headers/header-one";
 
 const AboutUsMain = () => {
   useScrollSmooth();
@@ -39,7 +41,7 @@ const AboutUsMain = () => {
   return (
     <Wrapper>
       {/* header area start */}
-      <HeaderEleven transparent={true} />
+      <HeaderOne />
       {/* header area end */}
 
       <div id="smooth-wrapper">
@@ -54,7 +56,7 @@ const AboutUsMain = () => {
             {/* about area */}
 
             {/* team area */}
-            <TeamOne spacing="" />
+            {/* <TeamOne spacing="" /> */}
             {/* team area */}
 
             {/* fun fact area */}
@@ -62,7 +64,7 @@ const AboutUsMain = () => {
             {/* fun fact area */}
 
             {/* brand area */}
-            <BrandFive />
+            <BrandOne />
             {/* brand area */}
           </main>
 

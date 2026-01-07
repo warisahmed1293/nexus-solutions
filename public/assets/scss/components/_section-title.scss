@@ -91,10 +91,10 @@
         font-weight: 400;
         line-height: 1;
         letter-spacing: -4px;
-        color: var(--tp-common-white);
+        color: #472943;
         font-family: var(--tp-ff-marcellus);
         @media #{$xxl}{
-            font-size: 150px;
+            font-size: 100px;
         }
         @media #{$xl}{
             font-size: 140px;
@@ -131,7 +131,7 @@
         }
     }
     &-title-220{
-        font-size: 220px;
+        font-size: 120px;
         font-weight: 400;
         line-height: 1;
         color: var(--tp-common-white);

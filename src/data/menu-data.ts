@@ -46,8 +46,8 @@ const menu_data: IMenuDT[] = [
   },
   {
     id: 3,
-    title: 'Services',
-    link: '/service',
+    title: 'Our work',
+    link: '/portfolio-standard',
   },
   // {
   //   id: 4,

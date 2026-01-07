@@ -16,6 +16,9 @@ import BigText from "@/components/big-text";
 import { charAnimation, titleAnimation } from "@/utils/title-animation";
 import { imageRevealAnimation } from "@/utils/image-reveal-anim";
 import { hoverBtn } from "@/utils/hover-btn";
+import HeaderOne from "@/layouts/headers/header-one";
+import ProjectOne from "@/components/project/project-one";
+import FooterOne from "@/layouts/footers/footer-one";
 
 const PortfolioStandardMain = () => {
   useScrollSmooth();
@@ -53,7 +56,7 @@ const PortfolioStandardMain = () => {
       {/* magic cursor end */}
       
       {/* header area start */}
-      <HeaderEleven />
+      <HeaderOne />
       {/* header area end */}
 
       <div id="smooth-wrapper">
@@ -87,16 +90,16 @@ const PortfolioStandardMain = () => {
             {/* portfolio hero */}
 
             {/* portfolio area */}
-            <ProjectFive style_2={true} />
+            <ProjectOne />
             {/* portfolio area */}
 
             {/* big text */}
-            <BigText/>
+            {/* <BigText/> */}
             {/* big text */}
           </main>
 
           {/* footer area */}
-          <FooterTwo topCls="" />
+          <FooterOne />
           {/* footer area */}
         </div>
       </div>

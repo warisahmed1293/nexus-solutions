@@ -190,6 +190,7 @@ body {
 	font-weight: normal;
 	color: var(--tp-text-body);
 	line-height: 26px;
+	background-color: #efdfec;
 }
 
 a{
@@ -496,3 +497,6 @@ input[type="color"] {
 }
 
 
+.rfm-initial-child-container{
+	gap: 20px !important;
+}

@@ -74,15 +74,15 @@
     }
     &-title{
         font-weight: 400;
-        font-size: 220px;
+        font-size: 120px;
         line-height: 1;
-        color: var(--tp-common-black);
+        color: #472943;
         font-family: var(--tp-ff-gallery);
         @media #{$xxxl,$xxl}{
-            font-size: 175px;
+            font-size: 100px;
         }
         @media #{$xl}{
-            font-size: 150px;
+            font-size: 100px;
         }
         @media #{$lg}{
             font-size: 120px;
@@ -228,7 +228,7 @@
         }
     }
     &-title{
-        font-size: 130px;
+        font-size: 100px;
         font-weight: 500;
         line-height: 1;
         letter-spacing: -5.2px;
@@ -511,7 +511,7 @@
         white-space: nowrap;
         margin-bottom: 20px;
         @media #{$xl}{
-            font-size: 150px;
+            font-size: 100px;
         }
         @media #{$lg}{
             font-size: 130px;
@@ -787,7 +787,7 @@
         }
     }
     &-title{
-        font-size: 220px;
+        font-size: 120px;
         font-weight: 700;
         line-height: 1;
         color: var(--tp-common-black);

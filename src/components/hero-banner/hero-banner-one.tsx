@@ -42,7 +42,7 @@ const HeroBannerOne = () => {
                     </span>
                   </span>
                   <br />
-                  Digital
+                  Design
                   <span className="tp-hero-title-img">
                     <Image
                       className="tp-zoom-img"
@@ -60,8 +60,7 @@ const HeroBannerOne = () => {
             <div className="tp-hero-content tp_fade_bottom">
               <p>
                 <span></span>
-                Specializing in branding and digital creations, we build personal relationships and foster close collaboration with our clients. Our selective approach ensures each project receives meticulous attention, allowing us to craft unique concepts infused with artistic storytelling.
-              </p>
+                We specialize in branding and digital creation, taking a highly personal and collaborative approach to every project. By building close relationships and truly getting to know each client, we ensure that every brand we create authentically reflects who they are and what they stand for. Our selective way of working allows us to give each project the attention it deserves, crafting thoughtful concepts rooted in artistic storytelling, creativity, and a deep commitment to quality.              </p>
             </div>
           </div>
         </div>

@@ -103,7 +103,7 @@ const HomeMain = () => {
             {/* service area */}
 
             {/* project area */}
-            <ProjectOne />
+            {/* <ProjectOne /> */}
             {/* project area */}
 
             {/* award area */}
@@ -115,7 +115,7 @@ const HomeMain = () => {
             {/* team area */}
 
             {/* testimonial area */}
-            <TestimonialOne />
+            {/* <TestimonialOne /> */}
             {/* testimonial area */}
           </main>
 
