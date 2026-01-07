@@ -77,12 +77,6 @@ export default function FooterOne() {
                             <a href="https://www.instagram.com/glazed.design" target="_blank">Instagram</a>
                           </li>
                           <li className="tp_fade_bottom">
-                            {/* <a href="https://www.linkedin.com/company/glazedesign/" target="_blank">Linkedin</a> */}
-                          </li>
-                          <li className="tp_fade_bottom">
-                            {/* <a href="https://www.linkedin.com/company/glazedesign/" target="_blank">Linkedin</a> */}
-                          </li>
-                          <li className="tp_fade_bottom">
                             <a href="https://www.behance.net/tanyabizri" target="_blank">Behance</a>
                           </li>
                         </ul>

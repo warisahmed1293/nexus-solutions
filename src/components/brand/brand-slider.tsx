@@ -2,7 +2,6 @@
 import React from "react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-
 // brand images
 import b_1 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-01.png";
 import b_2 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-02.png";
@@ -35,36 +34,27 @@ import b_28 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-28.png";
 import b_29 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-29.png";
 import b_30 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-30.png";
 
-const brand_images = [b_1, b_2, b_3, b_4, b_5, b_6, b_7, b_8,  b_1, b_2, b_3, b_4, b_5, b_6, b_7, b_8, b_9, b_10, b_11, b_12, b_13, b_14, b_15, b_16, b_17, b_18, b_19, b_20, b_21, b_22, b_23, b_24, b_25, b_26, b_27, b_28, b_29, b_30];
+const brand_images = [
+  b_1, b_2, b_3, b_4, b_5, b_6, b_7, b_8, b_9, b_10, 
+  b_11, b_12, b_13, b_14, b_15, b_16, b_17, b_18, b_19, b_20, 
+  b_21, b_22, b_23, b_24, b_25, b_26, b_27, b_28, b_29, b_30
+];
 
 export default function BrandSlider() {
   return (
     <div className="tp-brand-slider-active fix">
       <Marquee
-        speed={100}
-        loop={0}
+        speed={50}
+        gradient={false}
+        pauseOnHover={true}
         className="brand-wrapper"
       >
         {brand_images.map((b, i) => (
-          <div key={i} className="tp-brand-item">
-            <Image src={b} alt="" style={{width:120, height:"100%"}} />
+          <div key={i} className="tp-brand-item" style={{ marginRight: '40px' }}>
+            <Image src={b} alt="" style={{width: 120, height: "auto"}} />
           </div>
         ))}
       </Marquee>
-      {/* <Swiper
-        {...slider_setting}
-        modules={[Autoplay, FreeMode]}
-        className="brand-wrapper"
-      >
-        {brand_images.map((b, i) => (
-          <SwiperSlide key={i}>
-            <div className="tp-brand-item">
-              <Image src={b} alt="" />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper> */}
     </div>
   );
 }
-
