@@ -4,7 +4,6 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee";
 // brand images
 import b_1 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-01.png";
-import b_2 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-02.png";
 import b_3 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-03.png";
 import b_4 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-04.png";
 import b_5 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-05.png";
@@ -13,7 +12,6 @@ import b_7 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-07.png";
 import b_8 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-08.png";
 import b_9 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-09.png";
 import b_10 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-10.png";
-import b_11 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-11.png";
 import b_12 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-12.png";
 import b_13 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-13.png";
 import b_14 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-14.png";
@@ -35,8 +33,7 @@ import b_29 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-29.png";
 import b_30 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-30.png";
 
 const brand_images = [
-  b_1, b_2, b_3, b_4, b_5, b_6, b_7, b_8, b_9, b_10, 
-  b_11, b_12, b_13, b_14, b_15, b_16, b_17, b_18, b_19, b_20, 
+  b_1, b_3, b_4, b_5, b_6, b_7, b_8, b_9, b_10,  b_12, b_13, b_14, b_15, b_16, b_17, b_18, b_19, b_20, 
   b_21, b_22, b_23, b_24, b_25, b_26, b_27, b_28, b_29, b_30
 ];
 
