@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Leaf } from "../svg";
 // images
 import b_1 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-01.png";
-import b_2 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-02.png";
 import b_3 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-03.png";
 import b_4 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-04.png";
 import b_5 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-05.png";
@@ -27,7 +26,7 @@ const brand_data = [
   },
   {
     id: 2,
-    brand: b_2,
+    brand: b_1,
     texts: [
       "TopoChico.com",
       "TopoChico.com",
