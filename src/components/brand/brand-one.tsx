@@ -6,7 +6,7 @@ const BrandOne = () => {
       <div className="row align-items-center">
         <div className="col-xxl-2 col-xl-3 col-lg-3">
           <div className="tp-brand-title-box">
-            <h4 className="tp-brand-title tp_fade_bottom">Clients I’ve Worked With</h4>
+            <h4 className="tp-brand-title tp_fade_bottom">Clients we’ve worked with</h4>
           </div>
         </div>
         <div className="col-xxl-10 col-xl-9 col-lg-9">
