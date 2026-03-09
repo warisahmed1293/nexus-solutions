@@ -42,7 +42,7 @@ export default function FooterOne() {
               <div className="col-xl-5 col-lg-6">
                 <div className="tp-footer-middle-wrap">
                   <div className="tp-footer-content">
-                    <h4 className="tp-footer-big-title footer-big-text">{"Let's"} Contact!</h4>
+                    <h4 className="tp-footer-big-title footer-big-text">{"Let's"} Connect!</h4>
                   </div>
                   <div className="row">
                     <div className="col-xl-6 col-lg-6 col-md-6">

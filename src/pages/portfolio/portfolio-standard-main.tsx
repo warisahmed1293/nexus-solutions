@@ -19,7 +19,7 @@ import { hoverBtn } from "@/utils/hover-btn";
 import HeaderOne from "@/layouts/headers/header-one";
 import ProjectOne from "@/components/project/project-one";
 import FooterOne from "@/layouts/footers/footer-one";
-
+import WorkMarquee from "@/components/project/work-marquee";
 const PortfolioStandardMain = () => {
   useScrollSmooth();
 
@@ -31,10 +31,10 @@ const PortfolioStandardMain = () => {
   }, []);
 
   useEffect(() => {
-    if(typeof window !== 'undefined' && document.querySelector('.tp-magic-cursor')) {
+    if (typeof window !== 'undefined' && document.querySelector('.tp-magic-cursor')) {
       cursorAnimation();
     }
-  },[]);
+  }, []);
 
   useGSAP(() => {
     const timer = setTimeout(() => {
@@ -54,7 +54,7 @@ const PortfolioStandardMain = () => {
         <div id="ball"></div>
       </div>
       {/* magic cursor end */}
-      
+
       {/* header area start */}
       <HeaderOne />
       {/* header area end */}
@@ -71,7 +71,7 @@ const PortfolioStandardMain = () => {
                 <div className="row">
                   <div className="col-xl-12">
                     <div className="tm-hero-content">
-                      <span className="tm-hero-subtitle">Liko Studio</span>
+                      <span className="tm-hero-subtitle">Glazed Studio</span>
                       <h4 className="tm-hero-title tp-char-animation">
                         Our latest & great projects
                       </h4>
@@ -88,7 +88,7 @@ const PortfolioStandardMain = () => {
               </div>
             </div>
             {/* portfolio hero */}
-
+            <WorkMarquee />
             {/* portfolio area */}
             <ProjectOne />
             {/* portfolio area */}

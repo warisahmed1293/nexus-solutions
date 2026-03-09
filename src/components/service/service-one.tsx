@@ -66,7 +66,7 @@ const ServiceOne = () => {
               {/* <span className="tp-section-subtitle subtitle-position tp_fade_bottom">
                 I Think a lot
               </span> */}
-              <h4 className="tp-section-title tp_fade_bottom">
+              <h4 className="tp-section-title tp_fade_bottom" style={{fontSize:"60px"}}>
                 Thoughtful
                 <br />
                 <span>Process</span>

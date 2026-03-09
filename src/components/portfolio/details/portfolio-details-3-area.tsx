@@ -1,252 +1,208 @@
-import React from 'react';
-import { scroller } from 'react-scroll';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import { SwiperOptions } from 'swiper/types';
-import Image from 'next/image';
-import { Leaf, ScrollDownTwo, UpArrowFour } from '@/components/svg';
-import { IPortfolioItem } from '@/data/portfolio-data';
+// components/portfolio/details/portfolio-details-3-area.tsx
+"use client";
+import React, { useEffect, useRef } from "react";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import { IPortfolioItem } from "@/data/portfolio-data";
+import "@/assets/css/portfolio-details.css";
 
-// slider setting
-const slider_setting: SwiperOptions = {
-  slidesPerView: 3,
-  loop: true,
-  autoplay: true,
-  spaceBetween: 20,
-  speed: 1000,
-  breakpoints: {
-    '1400': {
-      slidesPerView: 3,
-    },
-    '1200': {
-      slidesPerView: 3,
-    },
-    '992': {
-      slidesPerView: 2,
-    },
-    '768': {
-      slidesPerView: 2,
-    },
-    '576': {
-      slidesPerView: 1,
-    },
-    '0': {
-      slidesPerView: 1,
-    },
-  },
-};
-
-interface PortfolioDetailsThreeAreaProps {
-  portfolio: IPortfolioItem;
+function useScrollReveal() {
+  const refs = useRef<(HTMLElement | null)[]>([]);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) (e.target as HTMLElement).classList.add("pd-visible");
+        });
+      },
+      { threshold: 0.07, rootMargin: "0px 0px -50px 0px" }
+    );
+    refs.current.forEach((el) => { if (el) observer.observe(el); });
+    return () => observer.disconnect();
+  }, []);
+  return refs;
 }
 
-export default function PortfolioDetailsThreeArea({ portfolio }: PortfolioDetailsThreeAreaProps) {
-  const { details } = portfolio;
+interface Props { portfolio: IPortfolioItem; }
 
-  const scrollTo = () => {
-    scroller.scrollTo('xyz', {
-      duration: 800,
-      delay: 0,
-      smooth: 'easeInOutQuart',
-    });
+export default function PortfolioDetailsThreeArea({ portfolio }: Props) {
+  const { details, category } = portfolio;
+  const refs = useScrollReveal();
+  const refIdx = useRef(0);
+
+  // reset counter each render
+  refIdx.current = 0;
+  const setRef = (el: HTMLElement | null) => {
+    refs.current[refIdx.current++] = el;
   };
 
+  // duplicate slider images so loop is seamless regardless of count
+  const allSliderImages = details.sliderImages.length > 0
+    ? [...details.sliderImages, ...details.sliderImages, ...details.sliderImages]
+    : [];
+
   return (
-    <>
-      {/* details area */}
-      <div className="tp-project-details-3-top tp-project-details-3-ptb">
-        <div className="container container-1560">
-          <div className="row">
-            <div className="col-xl-12">
-              <div className="tp-project-details-3-title-box">
-                <h2 className="tp-section-title-160 mb-50 tp-char-animation">
-                  {details.title}
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-xl-6">
-              <div className="tp-project-details-3-scroll smooth">
-                <a onClick={scrollTo} className="pointer">
-                  <span>
-                    <ScrollDownTwo />
-                  </span>
-                  Scroll to Explore
-                </a>
-              </div>
-            </div>
-            <div className="col-xl-6">
-              <div className="tp-project-details-3-link mt-30 text-start text-md-end">
-                <a href={details.websiteUrl} target="_blank" rel="noopener noreferrer">
-                  Visit Website
-                  <span>
-                    <UpArrowFour />
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
+    <div className="pd-page">
+      <div className="pd-page">
+
+        {/* ── HERO ── */}
+        <div className="pd-hero">
+          <Image
+            src={details.fullImage}
+            alt={details.title}
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+          />
         </div>
-      </div>
 
-      {/* full image */}
-      <div className="tp-project-details-3-full-width-thumb mb-120">
-        <Image data-speed=".8" src={details.fullImage} alt={details.title} style={{ height: 'auto' }} />
-      </div>
-
-      {/* first section */}
-      {details.sections[0] && (
-        <div className="showcase-details-2-area pb-120">
-          <div className="container">
-            <div className="row">
-              <div className="col-xl-12">
-                <div className="showcase-details-2-section-box">
-                  <h4 className="showcase-details-2-section-title tp-char-animation">
-                    {details.sections[0].sectionTitle}
-                  </h4>
-                </div>
-              </div>
+        {/* ── INFO ROW ── */}
+        <div
+          className="pd-info pd-reveal-stagger"
+          ref={setRef as React.RefCallback<HTMLDivElement>}
+        >
+          <div>
+            <h1 className="pd-info__title">{details.title}</h1>
+            <div className="pd-info__desc">
+              {details.sections[0]?.content.map((p, i) => <p key={i}>{p}</p>)}
             </div>
-            <div className="row">
-              <div className="col-xl-3">
-                <div className="showcase-details-2-section-left">
-                  <span className="ab-inner-subtitle mb-25">
-                    <Leaf />
-                    {details.sections[0].subtitle}
-                  </span>
-                </div>
-              </div>
-              <div className="col-xl-9">
-                <div className="showcase-details-2-content-right tp_title_anim">
-                  {details.sections[0].content.map((paragraph, idx) => (
-                    <p key={idx} className={idx === 0 ? "pb-25" : ""}>
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <a className="pd-visit" href={details.websiteUrl} target="_blank" rel="noopener noreferrer">
+              Visit Website ↗
+            </a>
           </div>
-        </div>
-      )}
 
-      {/* second full image */}
-      <div id="xyz" className="tp-project-details-3-thumb mb-120">
-        <div className="container container-1560">
-          <div className="row">
-            <div className="col-xl-12">
-              <div className="tp-project-details-3-thumb-box">
-                <Image data-speed=".8" src={details.fullImage2} alt={details.title} style={{ height: 'auto' }} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* second section */}
-      {details.sections[1] && (
-        <div className="showcase-details-2-area pb-120">
-          <div className="container">
-            <div className="row">
-              <div className="col-xl-8">
-                <div className="showcase-details-2-section-box">
-                  <h4 className="showcase-details-2-section-title tp-char-animation">
-                    {details.sections[1].sectionTitle}
-                  </h4>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-xl-3">
-                <div className="showcase-details-2-section-left">
-                  <span className="ab-inner-subtitle mb-25">
-                    <Leaf />
-                    {details.sections[1].subtitle}
-                  </span>
-                </div>
-              </div>
-              <div className="col-xl-9">
-                <div className="showcase-details-2-content-right tp_title_anim">
-                  {details.sections[1].content.map((paragraph, idx) => (
-                    <p key={idx} className={idx === 0 ? "pb-25" : ""}>
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* thumb images */}
-      {details.thumbImages.length > 0 && (
-        <div className="tp-project-details-3-thumb mb-90">
-          <div className="container">
-            <div className="row">
-              {details.thumbImages.map((img, idx) => (
-                <div key={idx} className="col-xl-6">
-                  <div className="tp-project-details-3-thumb-box mb-30">
-                    <Image className="w-100" src={img} alt={`${details.title}-${idx}`} style={{ height: 'auto' }} />
-                  </div>
-                </div>
+          <div>
+            <div className="pd-col-group">
+              <span className="pd-col-label">Disciplines</span>
+              {details.sections.map((s, i) => (
+                <span className="pd-col-item" key={i}>{s.sectionTitle}</span>
               ))}
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* third section */}
-      {details.sections[2] && (
-        <div className="showcase-details-2-area pb-120">
-          <div className="container">
-            <div className="row">
-              <div className="col-xl-8">
-                <div className="showcase-details-2-section-box">
-                  <h4 className="showcase-details-2-section-title tp-char-animation">
-                    {details.sections[2].sectionTitle}
-                  </h4>
-                </div>
-              </div>
+            <div className="pd-col-group">
+              <span className="pd-col-label">Category</span>
+              <span className="pd-col-item">{category}</span>
             </div>
-            <div className="row">
-              <div className="col-xl-3">
-                <div className="showcase-details-2-section-left">
-                  <span className="ab-inner-subtitle mb-25">
-                    <Leaf />
-                    {details.sections[2].subtitle}
-                  </span>
-                </div>
-              </div>
-              <div className="col-xl-9">
-                <div className="showcase-details-2-content-right tp_title_anim">
-                  {details.sections[2].content.map((paragraph, idx) => (
-                    <p key={idx} className={idx === 0 ? "pb-25" : ""}>
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-              </div>
+          </div>
+
+          <div>
+            <div className="pd-col-group">
+              <span className="pd-col-label">Year</span>
+              <span className="pd-col-item">2024</span>
             </div>
           </div>
         </div>
-      )}
 
-      {/* slider images area */}
-      {details.sliderImages.length > 0 && (
-        <div className="pd-visual-slider-wrap pb-40">
-          <Swiper {...slider_setting} modules={[Autoplay]} className="swiper-container pd-visual-slider-active">
-            {details.sliderImages.map((imgSrc, index) => (
-              <SwiperSlide key={index}>
-                <div className="pd-visual-slider-thumb fix">
-                  <Image src={imgSrc} alt={`${details.title}-slider-${index}`} style={{ height: "auto" }} />
-                </div>
-              </SwiperSlide>
+        {/* ── FULL WIDTH IMAGE 2 ── */}
+        <div
+          className="pd-full-img pd-reveal"
+          ref={setRef as React.RefCallback<HTMLDivElement>}
+        >
+          <Image
+            src={details.fullImage2}
+            alt={details.title}
+            width={1920}
+            height={1080}
+            style={{ width: "100%", height: "auto" }}
+          />
+        </div>
+
+        {/* ── SECTION 2 ── */}
+        {details.sections[1] && (
+          <>
+            <div
+              className="pd-section pd-reveal"
+              ref={setRef as React.RefCallback<HTMLDivElement>}
+            >
+              <h2 className="pd-section__heading">{details.sections[1].sectionTitle}</h2>
+              <div className="pd-section__body">
+                <span className="pd-section__sub">{details.sections[1].subtitle}</span>
+                {details.sections[1].content.map((p, i) => <p key={i}>{p}</p>)}
+              </div>
+            </div>
+            <div className="pd-divider" />
+          </>
+        )}
+
+        {/* ── SPLIT 2-COL THUMBS ── */}
+        {details.thumbImages.length >= 2 && (
+          <div
+            className="pd-split pd-reveal"
+            ref={setRef as React.RefCallback<HTMLDivElement>}
+          >
+            {details.thumbImages.map((img, i) => (
+              <div className="pd-split__img" key={i}>
+                <Image src={img} alt={`${details.title} ${i + 1}`} fill sizes="50vw" style={{ objectFit: "cover" }} />
+              </div>
             ))}
-          </Swiper>
-        </div>
-      )}
-    </>
+          </div>
+        )}
+
+        {/* ── SECTION 3 ── */}
+        {details.sections[2] && (
+          <>
+            <div
+              className="pd-section pd-reveal"
+              ref={setRef as React.RefCallback<HTMLDivElement>}
+            >
+              <h2 className="pd-section__heading">{details.sections[2].sectionTitle}</h2>
+              <div className="pd-section__body">
+                <span className="pd-section__sub">{details.sections[2].subtitle}</span>
+                {details.sections[2].content.map((p, i) => <p key={i}>{p}</p>)}
+              </div>
+            </div>
+            <div className="pd-divider" />
+          </>
+        )}
+
+        {/* ── EXTRA 2-COL GRID (first 2 slider images) ── */}
+        {details.sliderImages.length >= 2 && (
+          <div
+            className="pd-extra-grid pd-reveal"
+            ref={setRef as React.RefCallback<HTMLDivElement>}
+          >
+            {details.sliderImages.slice(0, 2).map((img, i) => (
+              <div className="pd-extra-grid__img" key={i}>
+                <Image src={img} alt={`${details.title} extra ${i + 1}`} fill sizes="50vw" style={{ objectFit: "cover" }} />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* ── SLIDER — all images tripled for smooth infinite loop ── */}
+        {allSliderImages.length > 0 && (
+          <div
+            className="pd-slider-wrap pd-reveal"
+            ref={setRef as React.RefCallback<HTMLDivElement>}
+          >
+            <Swiper
+              modules={[Autoplay]}
+              slidesPerView="auto"
+              spaceBetween={16}
+              loop={true}
+              speed={3000}
+              autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: false }}
+              allowTouchMove={false}
+            >
+              {allSliderImages.map((img, i) => (
+                <SwiperSlide key={i} style={{ width: "auto" }}>
+                  <div className="pd-slide-img">
+                    <Image
+                      src={img}
+                      alt={`${details.title} slide ${i + 1}`}
+                      height={420}
+                      width={640}
+                      style={{ height: "420px", width: "auto", display: "block" }}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        )}
+
+      </div>
+    </div>
   );
 }

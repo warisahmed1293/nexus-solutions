@@ -31,11 +31,12 @@ import b_27 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-27.png";
 import b_28 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-28.png";
 import b_29 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-29.png";
 import b_30 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-30.png";
+import b_31 from "@/assets/img/home-01/client-logos/CLIENT LOGOS 2025-31.png";
 
 const brand_images = [
   b_1, b_3, b_4, b_5, b_6, b_7, b_8, b_9, b_10, b_12, b_13, b_14, b_15,
   b_16, b_17, b_18, b_19, b_20, b_21, b_22, b_23, b_24, b_25, b_26, b_27,
-  b_28, b_29, b_30,
+  b_28, b_29, b_30, b_31,
 ];
 
 // Duplicate to fill the gap
